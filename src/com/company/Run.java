@@ -7,7 +7,7 @@ public class Run implements Runnable{
     public Run(Movies[] movies){
         this.movies = movies;
     }
-    public void searchByName(String movieName){
+    public void searchByFilmName(String movieName){
         Map<String, Movies> moviesMap = new HashMap<>();
         for (Movies movie : movies) {
             int check = movie.getName().toLowerCase().indexOf(movieName.toLowerCase());
@@ -44,10 +44,8 @@ public class Run implements Runnable{
     public void sortByProducerName(){
         Map<String, Movies> moviesMap = new HashMap<>();
         for (Movies movie : movies) {
-            Cast[] name = movie.getCast();
-            for (Cast cast : name) {
-                moviesMap.put(cast.getFullName(), movie);
-            }
+            Director name = movie.getDirector();
+            moviesMap.put(name.getFullName(), movie);
         }
         int i = 1;
         TreeMap<String, Movies> sortedByName = new TreeMap<>(moviesMap);
@@ -55,6 +53,20 @@ public class Run implements Runnable{
             System.out.println(i + ")" +  m.getKey());
             i++;
         }
+    }
+    public void searchByActorName(String actorName){
+        Map<String, Movies> moviesMap = new HashMap<>();
+        for (Movies movie : movies) {
+            Cast[] name = movie.getCast();
+            for (Cast cast : name) {
+                int check = movie.getName().toLowerCase().indexOf(actorName.toLowerCase());
+                if (actorName.length() >= 2 && check >= 0) {
+                    moviesMap.put(cast.getFullName(), movie);
+                }
+            }
+
+        }
+        System.out.println(moviesMap);
     }
 
     @Override

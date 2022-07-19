@@ -11,11 +11,7 @@ public class Task_1{
         try {
             Movies[] movies = FileService.readFile();
             Run run = new Run(movies);
-//            System.out.println(Arrays.toString(movies));
-//            String getMovie = new Scanner(System.in).nextLine();
-//            run.searchByName(getMovie);
             run.sortByProducerName();
-
 
         }catch (IOException ignored){}
     }
