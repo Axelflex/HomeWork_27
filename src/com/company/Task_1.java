@@ -11,7 +11,6 @@ public class Task_1{
         try {
             Movies[] movies = FileService.readFile();
             Run run = new Run(movies);
-            run.sortByProducerName();
 
         }catch (IOException ignored){}
     }

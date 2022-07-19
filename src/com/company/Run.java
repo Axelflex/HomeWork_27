@@ -90,6 +90,20 @@ public class Run implements Runnable{
         }
         System.out.println(moviesMap);
     }
+    public void searchListByActorName(String actorName){
+        Map<String, Movies> moviesMap = new HashMap<>();
+        for (Movies movie : movies) {
+            Cast[] name = movie.getCast();
+            for (Cast cast : name) {
+                int check = cast.getFullName().toLowerCase().indexOf(actorName.toLowerCase());
+                if (actorName.length() >= 2 && check >= 0) {
+                    moviesMap.put(cast.getFullName(), movie);
+                    System.out.println(cast.getFullName() + " " + movie.getName());
+                }
+            }
+        }
+        System.out.println(moviesMap);
+    }
 
     @Override
     public void run() {
