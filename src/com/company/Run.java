@@ -80,6 +80,16 @@ public class Run implements Runnable{
         }
         System.out.println(moviesMap);
     }
+    public void searchByYear(int year){
+        Map<Integer, Movies> moviesMap = new HashMap<>();
+        for (Movies movie : movies) {
+            int check = movie.getName().toLowerCase().indexOf(year);
+            if (check >= 0) {
+                moviesMap.put(movie.getYear(), movie);
+            }
+        }
+        System.out.println(moviesMap);
+    }
 
     @Override
     public void run() {
