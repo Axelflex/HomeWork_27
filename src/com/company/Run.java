@@ -59,10 +59,22 @@ public class Run implements Runnable{
         for (Movies movie : movies) {
             Cast[] name = movie.getCast();
             for (Cast cast : name) {
-                int check = movie.getName().toLowerCase().indexOf(actorName.toLowerCase());
+                int check = cast.getFullName().toLowerCase().indexOf(actorName.toLowerCase());
                 if (actorName.length() >= 2 && check >= 0) {
                     moviesMap.put(cast.getFullName(), movie);
                 }
+            }
+
+        }
+        System.out.println(moviesMap);
+    }
+    public void searchByDirectorName(String directorName){
+        Map<String, Movies> moviesMap = new HashMap<>();
+        for (Movies movie : movies) {
+            Director name = movie.getDirector();
+            int check = name.getFullName().toLowerCase().indexOf(directorName.toLowerCase());
+            if (directorName.length() >= 2 && check >= 0) {
+                moviesMap.put(name.getFullName(), movie);
             }
 
         }
