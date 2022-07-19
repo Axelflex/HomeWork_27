@@ -14,7 +14,7 @@ public class Task_1{
 //            System.out.println(Arrays.toString(movies));
 //            String getMovie = new Scanner(System.in).nextLine();
 //            run.searchByName(getMovie);
-            run.sortByFilmName();
+            run.sortByProducerName();
 
 
         }catch (IOException ignored){}

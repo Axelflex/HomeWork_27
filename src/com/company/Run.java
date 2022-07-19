@@ -41,6 +41,21 @@ public class Run implements Runnable{
             i++;
         }
     }
+    public void sortByProducerName(){
+        Map<String, Movies> moviesMap = new HashMap<>();
+        for (Movies movie : movies) {
+            Cast[] name = movie.getCast();
+            for (Cast cast : name) {
+                moviesMap.put(cast.getFullName(), movie);
+            }
+        }
+        int i = 1;
+        TreeMap<String, Movies> sortedByName = new TreeMap<>(moviesMap);
+        for (Map.Entry<String, Movies> m : sortedByName.entrySet()){
+            System.out.println(i + ")" +  m.getKey());
+            i++;
+        }
+    }
 
     @Override
     public void run() {

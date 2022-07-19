@@ -10,12 +10,12 @@ public class Cast {
                 ", role = " + role + "]";
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public String getRole() {
+        return role;
     }
 
 }
